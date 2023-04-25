@@ -205,10 +205,43 @@
 								Show me!
 							</button>
 						</form>	
+						
+	<script type="text/javascript">	
+        function trackcall(e){
+        e.preventDefault();
+        var form = e.target;
+	var origin = form["origin"].value;
+        var destination = form["destination"].value;
+        var departure = form["picker-departing"].value;
+	var arrival = form["picker-returning"].value;
+      
+        
+        var travelvalues = {
+            origin, 
+	    destination,
+            departure, 
+            arrival 
+        };
+
+      
+
+        analytics.track('Flight Search', {
+            origin: travelvalues.origin,
+	    destination : travelvalues.destination,
+            departure: travelvalues.departure,
+	    arrival: travelvalues.arrival
+        });
+     }
+            </script>				
+						
 					</div>
 				</div>
 			</div>		
 		</div>
+		
+		
+    
+    
 
 		<!--  FEATURES SECTION  -->		
 		<section id="features">
